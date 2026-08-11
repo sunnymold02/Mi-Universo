@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Para alguien muy especial ❤️</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap"
+    rel="stylesheet"
+  >
+</head>
+
+<body>
+
+  <!-- UNIVERSO -->
+  <div class="universe">
+
+    <canvas id="spaceCanvas"></canvas>
+
+    <!-- Nebulosas -->
+    <div class="nebula nebula-1"></div>
+    <div class="nebula nebula-2"></div>
+    <div class="nebula nebula-3"></div>
+
+    <!-- Galaxias -->
+    <div class="galaxy galaxy-left">
+      <div class="galaxy-core"></div>
+    </div>
+
+    <div class="galaxy galaxy-right">
+      <div class="galaxy-core"></div>
+    </div>
+
+    <!-- Agujero negro -->
+    <div class="black-hole">
+      <div class="black-hole-ring ring-1"></div>
+      <div class="black-hole-ring ring-2"></div>
+      <div class="black-hole-ring ring-3"></div>
+      <div class="black-hole-center"></div>
+    </div>
+
+    <!-- Planeta izquierdo -->
+    <div class="planet planet-left">
+      <div class="planet-ring"></div>
+      <div class="planet-surface"></div>
+    </div>
+
+    <!-- Planeta derecho -->
+    <div class="planet planet-right">
+      <div class="planet-surface"></div>
+    </div>
+
+    <!-- Cometas -->
+    <div class="comet comet-1"></div>
+    <div class="comet comet-2"></div>
+    <div class="comet comet-3"></div>
+
+    <!-- Rocas espaciales -->
+    <div class="asteroid asteroid-1"></div>
+    <div class="asteroid asteroid-2"></div>
+    <div class="asteroid asteroid-3"></div>
+
+    <!-- Contenido -->
+    <main class="page-content">
+
+      <!-- NAVBAR -->
+      <header class="navbar">
+
+        <div class="logo-heart">
+          <span>♡</span>
+        </div>
+
+        <nav>
+          <a href="#inicio" class="active">Inicio</a>
+          <a href="#mensajes">Mensajes</a>
+          <a href="#momento">Nuestro momento</a>
+          <a href="#historia">Nuestra historia</a>
+          <a href="#siempre">Para siempre</a>
+        </nav>
+
+        <button id="musicTopButton" class="music-top">
+          <span>♫</span>
+          <span id="musicStatus">Música: Apagada</span>
+          <span>◉</span>
+        </button>
+
+      </header>
+
+
+      <!-- BOTONES LATERALES -->
+      <aside class="side-buttons">
+
+        <button onclick="scrollToSection('inicio')">
+          ♡
+        </button>
+
+        <button onclick="scrollToSection('mensajes')">
+          ☆
+        </button>
+
+        <button onclick="scrollToSection('momento')">
+          ✉
+        </button>
+
+      </aside>
+
+
+      <!-- INICIO -->
+      <section id="inicio" class="hero section">
+
+        <div class="floating-label label-galaxy-left">
+          Galaxia del Amor
+        </div>
+
+        <div class="floating-label label-comet">
+          Cometa de los Deseos
+        </div>
+
+        <div class="floating-label label-blackhole">
+          Agujero de los Recuerdos
+        </div>
+
+        <div class="floating-label label-planet">
+          Planeta de los Sueños
+        </div>
+
+        <div class="floating-label label-nebula">
+          Nube de la Felicidad
+        </div>
+
+        <div class="floating-label label-galaxy-right">
+          Galaxia de los Momentos
+        </div>
+
+
+        <div class="hero-center">
+
+          <p class="small-title">
+            ✦ UN PEQUEÑO UNIVERSO PARA TI ✦
+          </p>
+
+          <!-- EDITA ESTO -->
+          <h1>
+            PARA ALGUIEN
+            <span>muy especial</span>
+          </h1>
+
+          <!-- EDITA ESTO -->
+          <p class="hero-subtitle">
+            Gracias por existir en mi universo ♡
+          </p>
+
+          <button
+            class="start-button"
+            onclick="scrollToSection('mensajes')"
+          >
+            Comenzar
+            <span>➜</span>
+          </button>
+
+        </div>
+
+
+        <!-- TARJETAS -->
+        <div class="message-cards">
+
+          <article class="glass-card">
+
+            <div class="card-icon">
+              ♡
+            </div>
+
+            <!-- EDITA -->
+            <h3>Eres increíble</h3>
+
+            <!-- EDITA -->
+            <p>
+              No sé cómo explicarlo, pero desde que llegaste
+              hay momentos que simplemente se sienten diferentes.
+            </p>
+
+            <button onclick="showMessage(0)">
+              ♡
+            </button>
+
+          </article>
+
+
+          <article class="glass-card">
+
+            <div class="card-icon">
+              ☆
+            </div>
+
+            <!-- EDITA -->
+            <h3>Gracias por todo</h3>
+
+            <!-- EDITA -->
+            <p>
+              Gracias por cada conversación, cada sonrisa
+              y cada pequeño momento que hemos compartido.
+            </p>
+
+            <button onclick="showMessage(1)">
+              ♡
+            </button>
+
+          </article>
+
+
+          <article class="glass-card">
+
+            <div class="card-icon">
+              ♡
+            </div>
+
+            <!-- EDITA -->
+            <h3>Contigo, todo es mejor</h3>
+
+            <!-- EDITA -->
+            <p>
+              Hay personas que llegan sin hacer ruido
+              y terminan convirtiéndose en un lugar favorito.
+            </p>
+
+            <button onclick="showMessage(2)">
+              ♡
+            </button>
+
+          </article>
+
+        </div>
+
+
+        <button
+          class="scroll-down"
+          onclick="scrollToSection('mensajes')"
+        >
+          ↓
+        </button>
+
+      </section>
+
+
+
+      <!-- MENSAJES -->
+      <section id="mensajes" class="section messages-section">
+
+        <div class="section-title">
+
+          <span>✦</span>
+
+          <p>PALABRAS DESDE EL CORAZÓN</p>
+
+          <h2>
+            Algunos mensajes
+            <span>para ti</span>
+          </h2>
+
+        </div>
+
+
+        <div class="messages-grid">
+
+          <!-- EDITA ESTOS MENSAJES -->
+
+          <article class="big-message glass-panel">
+
+            <div class="message-number">
+              01
+            </div>
+
+            <div class="message-symbol">
+              ♡
+            </div>
+
+            <p>
+              No necesito un universo entero cuando tengo
+              momentos contigo que hacen que todo tenga sentido.
+            </p>
+
+          </article>
+
+
+          <article class="big-message glass-panel">
+
+            <div class="message-number">
+              02
+            </div>
+
+            <div class="message-symbol">
+              ✦
+            </div>
+
+            <p>
+              Hay personas que llegan a tu vida sin darte cuenta
+              y terminan convirtiéndose en tu lugar favorito.
+            </p>
+
+          </article>
+
+
+          <article class="big-message glass-panel">
+
+            <div class="message-number">
+              03
+            </div>
+
+            <div class="message-symbol">
+              ♡
+            </div>
+
+            <p>
+              Si pudiera guardar un instante para siempre,
+              elegiría cualquiera en el que estuvieras tú.
+            </p>
+
+          </article>
+
+
+          <article class="big-message glass-panel">
+
+            <div class="message-number">
+              04
+            </div>
+
+            <div class="message-symbol">
+              ∞
+            </div>
+
+            <p>
+              Entre tantos caminos, tantas personas y tantos
+              lugares, qué bonito que nuestros caminos se hayan encontrado.
+            </p>
+
+          </article>
+
+        </div>
+
+      </section>
+
+
+
+      <!-- MOMENTO + FOTO -->
+      <section id="momento" class="section moment-section">
+
+        <div class="section-title">
+
+          <span>✦</span>
+
+          <p>UN RECUERDO</p>
+
+          <h2>
+            Un momento
+            <span>que guardo</span>
+          </h2>
+
+        </div>
+
+
+        <div class="moment-container">
+
+          <div class="moment-text glass-panel">
+
+            <div class="date-circle">
+              ♡
+            </div>
+
+            <p class="moment-date">
+              Nuestro momento
+            </p>
+
+            <!-- EDITA -->
+            <h3>
+              Un recuerdo que merece
+              quedarse para siempre
+            </h3>
+
+            <!-- EDITA -->
+            <p>
+              De todos los lugares que existen en este enorme
+              universo, me pone muy feliz que nuestros caminos
+              se hayan encontrado.
+            </p>
+
+            <div class="little-stars">
+              ✦　♡　✦
+            </div>
+
+          </div>
+
+
+          <!-- FOTO -->
+          <div class="photo-card">
+
+            <div class="photo-frame">
+
+              <img
+                id="memoryImage"
+                src=""
+                alt="Nuestro momento"
+              >
+
+              <div
+                id="photoPlaceholder"
+                class="photo-placeholder"
+              >
+
+                <div>
+                  📷
+                </div>
+
+                <span>
+                  Agrega aquí nuestra foto
+                </span>
+
+                <small>
+                  Selecciona la segunda foto
+                </small>
+
+              </div>
+
+            </div>
+
+
+            <!-- BOTÓN PARA PONER LA FOTO -->
+            <label class="upload-button">
+
+              📸 Seleccionar foto
+
+              <input
+                type="file"
+                id="photoInput"
+                accept="image/*"
+                hidden
+              >
+
+            </label>
+
+          </div>
+
+        </div>
+
+
+        <!-- MÚSICA DEBAJO DE LA FOTO -->
+        <div class="music-player glass-panel">
+
+          <div class="music-info">
+
+            <div class="music-disc">
+              ♫
+            </div>
+
+            <div>
+
+              <span>
+                NUESTRA CANCIÓN
+              </span>
+
+              <h3>
+              Amor
+              </h3>
+
+              <p>
+                Emmanuel Cortes
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="audio-area">
+
+            <audio
+              id="loveSong"
+              controls
+              preload="metadata"
+            >
+            </audio>
+
+            <label class="song-upload">
+
+              🎵 Seleccionar canción
+
+              <input
+                type="file"
+                id="songInput"
+                accept="audio/*"
+                hidden
+              >
+
+            </label>
+
+          </div>
+
+        </div>
+
+        <p class="music-note">
+          Selecciona tu archivo MP3 de
+          <strong>“Amor - Emmanuel Cortes”</strong>
+          para reproducirlo aquí.
+        </p>
+
+      </section>
+
+
+
+      <!-- HISTORIA -->
+      <section id="historia" class="section history-section">
+
+        <div class="section-title">
+
+          <span>✦</span>
+
+          <p>NUESTRA HISTORIA</p>
+
+          <h2>
+            Dos caminos,
+            <span>un mismo universo.</span>
+          </h2>
+
+        </div>
+
+
+        <div class="timeline">
+
+          <div class="timeline-item">
+
+            <div class="timeline-dot">
+              01
+            </div>
+
+            <div class="timeline-content glass-panel">
+
+              <span>
+                EL COMIENZO
+              </span>
+
+              <h3>
+                Todo comenzó con una pequña conversacion
+              </h3>
+
+              <p>
+                A veces las mejores historias empiezan
+                sin que nos demos cuenta.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="timeline-item">
+
+            <div class="timeline-dot">
+              02
+            </div>
+
+            <div class="timeline-content glass-panel">
+
+              <span>
+                CADA MOMENTO
+              </span>
+
+              <h3>
+                Poco a poco se fueron creando recuerdos.
+              </h3>
+
+              <p>
+                Conversaciones, risas, miradas y momentos
+                que terminaron significando mucho.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="timeline-item">
+
+            <div class="timeline-dot">
+              03
+            </div>
+
+            <div class="timeline-content glass-panel">
+
+              <span>
+                HOY
+              </span>
+
+              <h3>
+                Y aquí estamos.
+              </h3>
+
+              <p>
+                En medio de este enorme universo,
+                compartiendo nuestra propia historia.
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+
+      <!-- PARA SIEMPRE -->
+      <section id="siempre" class="section forever-section">
+
+        <div class="forever-content">
+
+          <div class="orbit-heart">
+            ♡
+          </div>
+
+          <p>
+            Y SI ALGÚN DÍA LO OLVIDAS...
+          </p>
+
+          <h2>
+            Siempre habrá
+            <span>un lugar para ti</span>
+            en mi universo.
+          </h2>
+
+          <!-- EDITA -->
+          <p class="final-message">
+            Gracias por ser parte de mi historia.
+            Espero que este pequeño universo
+            te recuerde lo especial que eres.
+          </p>
+
+          <div class="infinity">
+            ∞
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- FOOTER -->
+      <footer>
+
+        <div>
+          ♡
+        </div>
+
+        <p>
+          Hecho con cariño para alguien muy especial.
+          
+          Que te ama con toda su ALMA
+        </p>
+
+        <span>
+          ✦
+        </span>
+
+      </footer>
+
+    </main>
+
+
+    <!-- MODAL DE MENSAJE -->
+    <div
+      id="messageModal"
+      class="modal"
+    >
+
+      <div class="modal-box glass-panel">
+
+        <button
+          class="modal-close"
+          onclick="closeMessage()"
+        >
+          ×
+        </button>
+
+        <div class="modal-heart">
+          ♡
+        </div>
+
+        <h2 id="modalTitle">
+          Para ti
+        </h2>
+
+        <p id="modalText">
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <!-- HORA -->
+    <div class="clock">
+
+      <div class="clock-icon">
+        ◷
+      </div>
+
+      <div>
+
+        <strong id="currentTime">
+          00:00
+        </strong>
+
+        <span>
+          Nuestro momento
+        </span>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <script src="script.js"></script>
+
+</body>
+</html>
