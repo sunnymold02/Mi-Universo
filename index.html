@@ -409,55 +409,45 @@
           </div>
 
 
-          <!-- FOTO -->
-          <div class="photo-card">
+         <!-- FOTO -->
+<div class="photo-card">
 
-            <div class="photo-frame">
+    <div class="photo-frame">
 
-              <img
-                id="memoryImage"
-                src=""
-                alt="Nuestro momento"
-              >
+        <img
+            id="memoryImage"
+            src="foto.jpg"
+            alt="Nuestro momento"
+        >
 
-              <div
-                id="photoPlaceholder"
-                class="photo-placeholder"
-              >
+        <div
+            id="photoPlaceholder"
+            class="photo-placeholder"
+        >
+            <span>
+                Agrega aquí nuestra foto
+            </span>
 
-                <div>
-                  📷
-                </div>
+            <small>
+                Selecciona la segunda foto
+            </small>
+        </div>
 
-                <span>
-                  Agrega aquí nuestra foto
-                </span>
+    </div>
 
-                <small>
-                  Selecciona la segunda foto
-                </small>
+    <!-- BOTÓN PARA PONER LA FOTO -->
+    <label class="upload-button">
+        Seleccionar foto
 
-              </div>
+        <input
+            type="file"
+            id="photoInput"
+            accept="image/*"
+            hidden
+        >
+    </label>
 
-            </div>
-
-
-            <!-- BOTÓN PARA PONER LA FOTO -->
-            <label class="upload-button">
-
-              📸 Seleccionar foto
-
-              <input
-                type="file"
-                id="photoInput"
-                accept="image/*"
-                hidden
-              >
-
-            </label>
-
-          </div>
-
+</div>
         </div>
 
 
@@ -740,11 +730,7 @@
   <script src="script.js"></script>
   <div class="recuerdo-especial">
   <img src="foto.jpg" alt="Nuestra foto">
-
-  <audio controls>
-    <source src="Emmanuel Cortes - Amor.mp3" type="audio/mpeg">
-    Tu navegador no puede reproducir este audio.
-  </audio>
+    
 </div>
 </body>
 </html>
