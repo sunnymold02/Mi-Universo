@@ -1,593 +1,447 @@
-/* ==========================================
-   UNIVERSO ANIMADO
-========================================== */
+/* =========================================================
+   MI UNIVERSO ❤️
+   SCRIPT.JS
+   ========================================================= */
 
-const canvas = document.getElementById("spaceCanvas");
-const ctx = canvas.getContext("2d");
+document.addEventListener("DOMContentLoaded", () => {
 
-let stars = [];
-let width = 0;
-let height = 0;
+  /* =======================================================
+     NAVEGACIÓN
+     ======================================================= */
 
+  window.scrollToSection = function (sectionId) {
+    const section = document.getElementById(sectionId);
 
-/* Ajustar canvas */
-
-function resizeCanvas() {
-  width = window.innerWidth;
-  height = window.innerHeight;
-
-  canvas.width = width * window.devicePixelRatio;
-  canvas.height = height * window.devicePixelRatio;
-
-  canvas.style.width = width + "px";
-  canvas.style.height = height + "px";
-
-  ctx.setTransform(
-    window.devicePixelRatio,
-    0,
-    0,
-    window.devicePixelRatio,
-    0,
-    0
-  );
-
-  createStars();
-}
+    if (section) {
+      section.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+    }
+  };
 
 
-/* Crear estrellas */
+  /* =======================================================
+     MENSAJES
+     ======================================================= */
 
-function createStars() {
+  const messages = [
+    {
+      title: "Eres increíble ❤️",
+      text: "No sé cómo explicarlo, pero desde que llegaste hay momentos que simplemente se sienten diferentes."
+    },
+    {
+      title: "Gracias por todo ✨",
+      text: "Gracias por cada conversación, cada sonrisa y cada pequeño momento que hemos compartido."
+    },
+    {
+      title: "Contigo, todo es mejor ♡",
+      text: "Hay personas que llegan sin hacer ruido y terminan convirtiéndose en un lugar favorito."
+    }
+  ];
 
-  stars = [];
+  window.showMessage = function (index) {
 
-  const amount = Math.min(
-    550,
-    Math.floor((width * height) / 2500)
-  );
+    const modal = document.getElementById("messageModal");
+    const title = document.getElementById("modalTitle");
+    const text = document.getElementById("modalText");
 
-  for (let i = 0; i < amount; i++) {
+    if (!modal || !title || !text) return;
 
-    stars.push({
+    const message = messages[index];
 
-      x: Math.random() * width,
+    if (!message) return;
 
-      y: Math.random() * height,
+    title.textContent = message.title;
+    text.textContent = message.text;
 
-      radius:
-        Math.random() * 1.7 + .2,
+    modal.classList.add("show");
+  };
 
-      alpha:
-        Math.random() * .8 + .2,
 
-      speed:
-        Math.random() * .25 + .03,
+  window.closeMessage = function () {
 
-      twinkle:
-        Math.random() * .03 + .005,
+    const modal = document.getElementById("messageModal");
 
-      direction:
-        Math.random() > .5 ? 1 : -1
+    if (modal) {
+      modal.classList.remove("show");
+    }
+  };
+
+
+  /* Cerrar modal haciendo clic fuera */
+
+  const messageModal = document.getElementById("messageModal");
+
+  if (messageModal) {
+
+    messageModal.addEventListener("click", (event) => {
+
+      if (event.target === messageModal) {
+        closeMessage();
+      }
 
     });
 
   }
 
-}
 
+  /* Cerrar modal con ESC */
 
-/* Dibujar estrellas */
-
-function drawStars() {
-
-  ctx.clearRect(
-    0,
-    0,
-    width,
-    height
-  );
-
-  stars.forEach(star => {
-
-    star.y += star.speed;
-
-    star.alpha +=
-      star.twinkle *
-      star.direction;
-
-    if (star.alpha >= 1) {
-      star.alpha = 1;
-      star.direction = -1;
-    }
-
-    if (star.alpha <= .15) {
-      star.alpha = .15;
-      star.direction = 1;
-    }
-
-    if (star.y > height + 10) {
-      star.y = -10;
-      star.x = Math.random() * width;
-    }
-
-    ctx.beginPath();
-
-    ctx.fillStyle =
-      `rgba(255,255,255,${star.alpha})`;
-
-    ctx.arc(
-      star.x,
-      star.y,
-      star.radius,
-      0,
-      Math.PI * 2
-    );
-
-    ctx.fill();
-
-  });
-
-  requestAnimationFrame(drawStars);
-}
-
-
-window.addEventListener(
-  "resize",
-  resizeCanvas
-);
-
-resizeCanvas();
-drawStars();
-
-
-/* ==========================================
-   NAVEGACIÓN
-========================================== */
-
-function scrollToSection(id) {
-
-  const section =
-    document.getElementById(id);
-
-  if (!section) return;
-
-  section.scrollIntoView({
-    behavior: "smooth",
-    block: "start"
-  });
-
-}
-
-
-/* ==========================================
-   MENSAJES
-========================================== */
-
-const messages = [
-
-  {
-    title: "Eres increíble ♡",
-
-    text:
-      "No sé cómo explicarlo, pero desde que llegaste hay momentos que simplemente se sienten diferentes. Gracias por ser esa persona que hace que un día normal pueda convertirse en un recuerdo bonito."
-  },
-
-  {
-    title: "Gracias por todo ✦",
-
-    text:
-      "Gracias por cada conversación, cada sonrisa y cada pequeño momento que hemos compartido. Quizá algunas cosas parezcan pequeñas, pero para mí tienen un lugar especial."
-  },
-
-  {
-    title: "Contigo, todo es mejor ♡",
-
-    text:
-      "Hay personas que llegan sin hacer ruido y terminan convirtiéndose en un lugar favorito. Tú eres una de esas personas que hacen que todo se sienta un poquito más bonito."
-  }
-
-];
-
-
-function showMessage(index) {
-
-  const modal =
-    document.getElementById(
-      "messageModal"
-    );
-
-  const title =
-    document.getElementById(
-      "modalTitle"
-    );
-
-  const text =
-    document.getElementById(
-      "modalText"
-    );
-
-  if (!messages[index]) return;
-
-  title.textContent =
-    messages[index].title;
-
-  text.textContent =
-    messages[index].text;
-
-  modal.classList.add("show");
-
-}
-
-
-function closeMessage() {
-
-  const modal =
-    document.getElementById(
-      "messageModal"
-    );
-
-  modal.classList.remove("show");
-
-}
-
-
-document
-  .getElementById("messageModal")
-  .addEventListener(
-    "click",
-    function(event) {
-
-      if (event.target === this) {
-        closeMessage();
-      }
-
-    }
-  );
-
-
-/* ==========================================
-   FOTO
-========================================== */
-
-const photoInput =
-  document.getElementById(
-    "photoInput"
-  );
-
-const memoryImage =
-  document.getElementById(
-    "memoryImage"
-  );
-
-const photoFrame =
-  document.querySelector(
-    ".photo-frame"
-  );
-
-
-photoInput.addEventListener(
-  "change",
-  function() {
-
-    const file = this.files[0];
-
-    if (!file) return;
-
-    if (!file.type.startsWith("image/")) {
-
-      alert(
-        "Selecciona una imagen válida."
-      );
-
-      return;
-    }
-
-    const imageURL =
-      URL.createObjectURL(file);
-
-    memoryImage.src =
-      imageURL;
-
-    photoFrame.classList.add(
-      "has-image"
-    );
-
-  }
-);
-
-
-/* ==========================================
-   MÚSICA
-========================================== */
-
-const songInput =
-  document.getElementById(
-    "songInput"
-  );
-
-const loveSong =
-  document.getElementById(
-    "loveSong"
-  );
-
-const musicTopButton =
-  document.getElementById(
-    "musicTopButton"
-  );
-
-const musicStatus =
-  document.getElementById(
-    "musicStatus"
-  );
-
-
-songInput.addEventListener(
-  "change",
-  function() {
-
-    const file = this.files[0];
-
-    if (!file) return;
-
-    if (!file.type.startsWith("audio/")) {
-
-      alert(
-        "Selecciona un archivo de audio válido."
-      );
-
-      return;
-    }
-
-    const audioURL =
-      URL.createObjectURL(file);
-
-    loveSong.src =
-      audioURL;
-
-    loveSong.load();
-
-    musicStatus.textContent =
-      "Música: Lista";
-
-  }
-);
-
-
-/* Botón superior */
-
-musicTopButton.addEventListener(
-  "click",
-  async function() {
-
-    if (!loveSong.src) {
-
-      alert(
-        "Primero selecciona tu canción MP3 debajo de la foto."
-      );
-
-      return;
-    }
-
-    try {
-
-      if (loveSong.paused) {
-
-        await loveSong.play();
-
-        musicStatus.textContent =
-          "Música: Encendida";
-
-      } else {
-
-        loveSong.pause();
-
-        musicStatus.textContent =
-          "Música: Pausada";
-
-      }
-
-    } catch (error) {
-
-      console.log(
-        "El navegador necesita una interacción del usuario."
-      );
-
-    }
-
-  }
-);
-
-
-/* Cambiar texto según reproducción */
-
-loveSong.addEventListener(
-  "play",
-  function() {
-
-    musicStatus.textContent =
-      "Música: Encendida";
-
-  }
-);
-
-
-loveSong.addEventListener(
-  "pause",
-  function() {
-
-    musicStatus.textContent =
-      "Música: Pausada";
-
-  }
-);
-
-
-/* ==========================================
-   RELOJ
-========================================== */
-
-function updateClock() {
-
-  const now =
-    new Date();
-
-  let hours =
-    now.getHours();
-
-  const minutes =
-    String(
-      now.getMinutes()
-    ).padStart(2, "0");
-
-  const seconds =
-    String(
-      now.getSeconds()
-    ).padStart(2, "0");
-
-  const period =
-    hours >= 12
-      ? "PM"
-      : "AM";
-
-  hours =
-    hours % 12;
-
-  if (hours === 0) {
-    hours = 12;
-  }
-
-  const time =
-    `${hours}:${minutes}:${seconds} ${period}`;
-
-  const clock =
-    document.getElementById(
-      "currentTime"
-    );
-
-  if (clock) {
-    clock.textContent = time;
-  }
-
-}
-
-
-updateClock();
-
-setInterval(
-  updateClock,
-  1000
-);
-
-
-/* ==========================================
-   NAVEGACIÓN ACTIVA
-========================================== */
-
-const sections =
-  document.querySelectorAll(
-    "section[id]"
-  );
-
-const navLinks =
-  document.querySelectorAll(
-    ".navbar nav a"
-  );
-
-
-const observer =
-  new IntersectionObserver(
-    entries => {
-
-      entries.forEach(entry => {
-
-        if (!entry.isIntersecting) {
-          return;
-        }
-
-        navLinks.forEach(link => {
-
-          link.classList.remove(
-            "active"
-          );
-
-          if (
-            link.getAttribute("href") ===
-            "#" + entry.target.id
-          ) {
-
-            link.classList.add(
-              "active"
-            );
-
-          }
-
-        });
-
-      });
-
-    },
-    {
-      threshold: .35
-    }
-  );
-
-
-sections.forEach(
-  section => observer.observe(section)
-);
-
-
-/* ==========================================
-   TECLADO
-========================================== */
-
-document.addEventListener(
-  "keydown",
-  function(event) {
+  document.addEventListener("keydown", (event) => {
 
     if (event.key === "Escape") {
       closeMessage();
     }
 
+  });
+
+
+  /* =======================================================
+     RELOJ
+     ======================================================= */
+
+  const currentTime = document.getElementById("currentTime");
+
+  function updateClock() {
+
+    if (!currentTime) return;
+
+    const now = new Date();
+
+    const hours = String(now.getHours()).padStart(2, "0");
+    const minutes = String(now.getMinutes()).padStart(2, "0");
+    const seconds = String(now.getSeconds()).padStart(2, "0");
+
+    currentTime.textContent =
+      `${hours}:${minutes}:${seconds}`;
   }
-);
+
+  updateClock();
+
+  setInterval(updateClock, 1000);
 
 
-/* ==========================================
-   EFECTO DE MOVIMIENTO DEL UNIVERSO
-========================================== */
+  /* =======================================================
+     FOTO
+     ======================================================= */
 
-document.addEventListener(
-  "mousemove",
-  function(event) {
+  const photoInput = document.getElementById("photoInput");
+  const memoryImage = document.getElementById("memoryImage");
+  const photoPlaceholder = document.getElementById("photoPlaceholder");
 
-    const x =
-      (event.clientX / window.innerWidth - .5);
+  if (photoInput && memoryImage) {
 
-    const y =
-      (event.clientY / window.innerHeight - .5);
+    photoInput.addEventListener("change", (event) => {
 
-    const galaxies =
-      document.querySelectorAll(
-        ".galaxy"
+      const file = event.target.files[0];
+
+      if (!file) return;
+
+      if (!file.type.startsWith("image/")) {
+        alert("Selecciona una imagen válida.");
+        return;
+      }
+
+      const imageURL = URL.createObjectURL(file);
+
+      memoryImage.src = imageURL;
+      memoryImage.style.display = "block";
+
+      if (photoPlaceholder) {
+        photoPlaceholder.style.display = "none";
+      }
+
+    });
+
+  }
+
+
+  /* =======================================================
+     MÚSICA
+     ======================================================= */
+
+  const songInput = document.getElementById("songInput");
+  const audio = document.querySelector("audio");
+  const musicTopButton = document.getElementById("musicTopButton");
+  const musicStatus = document.getElementById("musicStatus");
+
+  if (songInput && audio) {
+
+    songInput.addEventListener("change", (event) => {
+
+      const file = event.target.files[0];
+
+      if (!file) return;
+
+      if (!file.type.startsWith("audio/")) {
+        alert("Selecciona un archivo de audio válido.");
+        return;
+      }
+
+      const audioURL = URL.createObjectURL(file);
+
+      audio.src = audioURL;
+
+      audio.load();
+
+      if (musicStatus) {
+        musicStatus.textContent = "Música: Lista";
+      }
+
+    });
+
+  }
+
+
+  /* Botón de música superior */
+
+  if (musicTopButton && audio) {
+
+    musicTopButton.addEventListener("click", async () => {
+
+      if (audio.paused) {
+
+        try {
+
+          await audio.play();
+
+          if (musicStatus) {
+            musicStatus.textContent = "Música: Encendida";
+          }
+
+        } catch (error) {
+
+          if (musicStatus) {
+            musicStatus.textContent = "Música: Selecciona una canción";
+          }
+
+        }
+
+      } else {
+
+        audio.pause();
+
+        if (musicStatus) {
+          musicStatus.textContent = "Música: Apagada";
+        }
+
+      }
+
+    });
+
+
+    audio.addEventListener("play", () => {
+
+      if (musicStatus) {
+        musicStatus.textContent = "Música: Encendida";
+      }
+
+    });
+
+
+    audio.addEventListener("pause", () => {
+
+      if (musicStatus) {
+        musicStatus.textContent = "Música: Apagada";
+      }
+
+    });
+
+  }
+
+
+  /* =======================================================
+     ESTRELLAS
+     ======================================================= */
+
+  const canvas = document.getElementById("spaceCanvas");
+
+  if (canvas) {
+
+    const ctx = canvas.getContext("2d");
+
+    let stars = [];
+
+    function resizeCanvas() {
+
+      const ratio = window.devicePixelRatio || 1;
+
+      canvas.width = window.innerWidth * ratio;
+      canvas.height = window.innerHeight * ratio;
+
+      canvas.style.width = `${window.innerWidth}px`;
+      canvas.style.height = `${window.innerHeight}px`;
+
+      ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
+
+      createStars();
+
+    }
+
+
+    function createStars() {
+
+      const amount = Math.min(
+        240,
+        Math.max(
+          100,
+          Math.floor(
+            (window.innerWidth * window.innerHeight) / 8500
+          )
+        )
       );
 
-    galaxies.forEach(
-      (galaxy, index) => {
+      stars = [];
 
-        const amount =
-          index === 0
-            ? 12
-            : -12;
+      for (let i = 0; i < amount; i++) {
 
-        galaxy.style.marginLeft =
-          `${x * amount}px`;
+        stars.push({
+          x: Math.random() * window.innerWidth,
+          y: Math.random() * window.innerHeight,
+          radius: Math.random() * 1.4 + 0.2,
+          alpha: Math.random() * 0.7 + 0.2,
+          speed: Math.random() * 0.015 + 0.003,
+          phase: Math.random() * Math.PI * 2
+        });
 
-        galaxy.style.marginTop =
-          `${y * amount}px`;
+      }
 
+    }
+
+
+    function drawStars(time) {
+
+      ctx.clearRect(
+        0,
+        0,
+        window.innerWidth,
+        window.innerHeight
+      );
+
+      stars.forEach((star) => {
+
+        const glow =
+          star.alpha +
+          Math.sin(time * star.speed + star.phase) * 0.18;
+
+        ctx.beginPath();
+
+        ctx.arc(
+          star.x,
+          star.y,
+          star.radius,
+          0,
+          Math.PI * 2
+        );
+
+        ctx.fillStyle =
+          `rgba(255,255,255,${Math.max(0.08, glow)})`;
+
+        ctx.fill();
+
+      });
+
+      requestAnimationFrame(drawStars);
+
+    }
+
+
+    window.addEventListener(
+      "resize",
+      resizeCanvas
+    );
+
+    resizeCanvas();
+
+    requestAnimationFrame(drawStars);
+
+  }
+
+
+  /* =======================================================
+     NAVBAR ACTIVA
+     ======================================================= */
+
+  const sections = document.querySelectorAll(
+    "section[id]"
+  );
+
+  const navLinks = document.querySelectorAll(
+    ".navbar nav a"
+  );
+
+  if (sections.length && navLinks.length) {
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+
+        entries.forEach((entry) => {
+
+          if (!entry.isIntersecting) return;
+
+          navLinks.forEach((link) => {
+            link.classList.remove("active");
+          });
+
+          const activeLink =
+            document.querySelector(
+              `.navbar nav a[href="#${entry.target.id}"]`
+            );
+
+          if (activeLink) {
+            activeLink.classList.add("active");
+          }
+
+        });
+
+      },
+      {
+        rootMargin: "-35% 0px -55% 0px"
       }
     );
 
+    sections.forEach((section) => {
+      observer.observe(section);
+    });
+
   }
-);
+
+
+  /* =======================================================
+     PROTECCIÓN DEL ENLACE DE NAVEGACIÓN
+     ======================================================= */
+
+  document.querySelectorAll(
+    '.navbar nav a[href^="#"]'
+  ).forEach((link) => {
+
+    link.addEventListener("click", (event) => {
+
+      const targetId =
+        link.getAttribute("href").substring(1);
+
+      const target =
+        document.getElementById(targetId);
+
+      if (!target) return;
+
+      event.preventDefault();
+
+      target.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+
+    });
+
+  });
+
+
+  /* =======================================================
+     INICIO
+     ======================================================= */
+
+  console.log("❤️ Mi Universo cargado correctamente.");
+
+});
