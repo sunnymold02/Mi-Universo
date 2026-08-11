@@ -2,46 +2,34 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Para alguien muy especial ❤️</title>
 
-  <link rel="stylesheet" href="style.css">
-
-  <link
-    rel="preconnect"
-    href="https://fonts.googleapis.com"
-  >
-
-  <link
-    rel="preconnect"
-    href="https://fonts.gstatic.com"
-    crossorigin
-  >
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <link
     href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap"
     rel="stylesheet"
   >
+
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <!-- UNIVERSO -->
+  <!-- =========================
+       UNIVERSO
+  ========================== -->
   <div class="universe">
 
     <canvas id="spaceCanvas"></canvas>
 
-    <!-- Nebulosas -->
     <div class="nebula nebula-1"></div>
     <div class="nebula nebula-2"></div>
     <div class="nebula nebula-3"></div>
 
-    <!-- Galaxias -->
     <div class="galaxy galaxy-left">
       <div class="galaxy-core"></div>
     </div>
@@ -50,7 +38,6 @@
       <div class="galaxy-core"></div>
     </div>
 
-    <!-- Agujero negro -->
     <div class="black-hole">
       <div class="black-hole-ring ring-1"></div>
       <div class="black-hole-ring ring-2"></div>
@@ -58,28 +45,27 @@
       <div class="black-hole-center"></div>
     </div>
 
-    <!-- Planeta izquierdo -->
     <div class="planet planet-left">
       <div class="planet-ring"></div>
       <div class="planet-surface"></div>
     </div>
 
-    <!-- Planeta derecho -->
     <div class="planet planet-right">
       <div class="planet-surface"></div>
     </div>
 
-    <!-- Cometas -->
     <div class="comet comet-1"></div>
     <div class="comet comet-2"></div>
     <div class="comet comet-3"></div>
 
-    <!-- Rocas espaciales -->
     <div class="asteroid asteroid-1"></div>
     <div class="asteroid asteroid-2"></div>
     <div class="asteroid asteroid-3"></div>
 
-    <!-- Contenido -->
+
+    <!-- =========================
+         CONTENIDO PRINCIPAL
+    ========================== -->
     <main class="page-content">
 
       <!-- NAVBAR -->
@@ -97,9 +83,13 @@
           <a href="#siempre">Para siempre</a>
         </nav>
 
-        <button id="musicTopButton" class="music-top">
+        <button
+          id="musicTopButton"
+          class="music-top"
+          type="button"
+        >
           <span>♫</span>
-          <span id="musicStatus">Música: Apagada</span>
+          <span id="musicStatus">Música: Lista</span>
           <span>◉</span>
         </button>
 
@@ -109,22 +99,36 @@
       <!-- BOTONES LATERALES -->
       <aside class="side-buttons">
 
-        <button onclick="scrollToSection('inicio')">
+        <button
+          type="button"
+          onclick="scrollToSection('inicio')"
+          aria-label="Ir al inicio"
+        >
           ♡
         </button>
 
-        <button onclick="scrollToSection('mensajes')">
+        <button
+          type="button"
+          onclick="scrollToSection('mensajes')"
+          aria-label="Ir a mensajes"
+        >
           ☆
         </button>
 
-        <button onclick="scrollToSection('momento')">
+        <button
+          type="button"
+          onclick="scrollToSection('momento')"
+          aria-label="Ir a nuestro momento"
+        >
           ✉
         </button>
 
       </aside>
 
 
-      <!-- INICIO -->
+      <!-- =========================
+           INICIO
+      ========================== -->
       <section id="inicio" class="hero section">
 
         <div class="floating-label label-galaxy-left">
@@ -158,19 +162,18 @@
             ✦ UN PEQUEÑO UNIVERSO PARA TI ✦
           </p>
 
-          <!-- EDITA ESTO -->
           <h1>
             PARA ALGUIEN
             <span>muy especial</span>
           </h1>
 
-          <!-- EDITA ESTO -->
           <p class="hero-subtitle">
             Gracias por existir en mi universo ♡
           </p>
 
           <button
             class="start-button"
+            type="button"
             onclick="scrollToSection('mensajes')"
           >
             Comenzar
@@ -185,20 +188,20 @@
 
           <article class="glass-card">
 
-            <div class="card-icon">
-              ♡
-            </div>
+            <div class="card-icon">♡</div>
 
-            <!-- EDITA -->
             <h3>Eres increíble</h3>
 
-            <!-- EDITA -->
             <p>
               No sé cómo explicarlo, pero desde que llegaste
               hay momentos que simplemente se sienten diferentes.
             </p>
 
-            <button onclick="showMessage(0)">
+            <button
+              type="button"
+              onclick="showMessage(0)"
+              aria-label="Leer mensaje"
+            >
               ♡
             </button>
 
@@ -207,20 +210,20 @@
 
           <article class="glass-card">
 
-            <div class="card-icon">
-              ☆
-            </div>
+            <div class="card-icon">☆</div>
 
-            <!-- EDITA -->
             <h3>Gracias por todo</h3>
 
-            <!-- EDITA -->
             <p>
               Gracias por cada conversación, cada sonrisa
               y cada pequeño momento que hemos compartido.
             </p>
 
-            <button onclick="showMessage(1)">
+            <button
+              type="button"
+              onclick="showMessage(1)"
+              aria-label="Leer mensaje"
+            >
               ♡
             </button>
 
@@ -229,20 +232,20 @@
 
           <article class="glass-card">
 
-            <div class="card-icon">
-              ♡
-            </div>
+            <div class="card-icon">♡</div>
 
-            <!-- EDITA -->
             <h3>Contigo, todo es mejor</h3>
 
-            <!-- EDITA -->
             <p>
               Hay personas que llegan sin hacer ruido
               y terminan convirtiéndose en un lugar favorito.
             </p>
 
-            <button onclick="showMessage(2)">
+            <button
+              type="button"
+              onclick="showMessage(2)"
+              aria-label="Leer mensaje"
+            >
               ♡
             </button>
 
@@ -253,7 +256,9 @@
 
         <button
           class="scroll-down"
+          type="button"
           onclick="scrollToSection('mensajes')"
+          aria-label="Bajar"
         >
           ↓
         </button>
@@ -261,9 +266,13 @@
       </section>
 
 
-
-      <!-- MENSAJES -->
-      <section id="mensajes" class="section messages-section">
+      <!-- =========================
+           MENSAJES
+      ========================== -->
+      <section
+        id="mensajes"
+        class="section messages-section"
+      >
 
         <div class="section-title">
 
@@ -281,17 +290,11 @@
 
         <div class="messages-grid">
 
-          <!-- EDITA ESTOS MENSAJES -->
-
           <article class="big-message glass-panel">
 
-            <div class="message-number">
-              01
-            </div>
+            <div class="message-number">01</div>
 
-            <div class="message-symbol">
-              ♡
-            </div>
+            <div class="message-symbol">♡</div>
 
             <p>
               No necesito un universo entero cuando tengo
@@ -303,13 +306,9 @@
 
           <article class="big-message glass-panel">
 
-            <div class="message-number">
-              02
-            </div>
+            <div class="message-number">02</div>
 
-            <div class="message-symbol">
-              ✦
-            </div>
+            <div class="message-symbol">✦</div>
 
             <p>
               Hay personas que llegan a tu vida sin darte cuenta
@@ -321,13 +320,9 @@
 
           <article class="big-message glass-panel">
 
-            <div class="message-number">
-              03
-            </div>
+            <div class="message-number">03</div>
 
-            <div class="message-symbol">
-              ♡
-            </div>
+            <div class="message-symbol">♡</div>
 
             <p>
               Si pudiera guardar un instante para siempre,
@@ -339,13 +334,9 @@
 
           <article class="big-message glass-panel">
 
-            <div class="message-number">
-              04
-            </div>
+            <div class="message-number">04</div>
 
-            <div class="message-symbol">
-              ∞
-            </div>
+            <div class="message-symbol">∞</div>
 
             <p>
               Entre tantos caminos, tantas personas y tantos
@@ -359,9 +350,13 @@
       </section>
 
 
-
-      <!-- MOMENTO + FOTO -->
-      <section id="momento" class="section moment-section">
+      <!-- =========================
+           NUESTRO MOMENTO
+      ========================== -->
+      <section
+        id="momento"
+        class="section moment-section"
+      >
 
         <div class="section-title">
 
@@ -379,6 +374,8 @@
 
         <div class="moment-container">
 
+
+          <!-- TEXTO -->
           <div class="moment-text glass-panel">
 
             <div class="date-circle">
@@ -389,13 +386,11 @@
               Nuestro momento
             </p>
 
-            <!-- EDITA -->
             <h3>
               Un recuerdo que merece
               quedarse para siempre
             </h3>
 
-            <!-- EDITA -->
             <p>
               De todos los lugares que existen en este enorme
               universo, me pone muy feliz que nuestros caminos
@@ -409,110 +404,104 @@
           </div>
 
 
-         <!-- FOTO -->
-<div class="photo-card">
+          <!-- FOTO -->
+          <div class="photo-card">
 
-    <div class="photo-frame">
+            <div class="photo-frame">
 
-        <img
-            id="memoryImage"
-            src="foto.jpg"
-            alt="Nuestro momento"
-        >
-
-        <div
-            id="photoPlaceholder"
-            class="photo-placeholder"
-        >
-            <span>
-                Agrega aquí nuestra foto
-            </span>
-
-            <small>
-                Selecciona la segunda foto
-            </small>
-        </div>
-
-    </div>
-
-    <!-- BOTÓN PARA PONER LA FOTO -->
-    <label class="upload-button">
-        Seleccionar foto
-
-        <input
-            type="file"
-            id="photoInput"
-            accept="image/*"
-            hidden
-        >
-    </label>
-
-</div>
-
-        <!-- MÚSICA DEBAJO DE LA FOTO -->
-        <div class="music-player glass-panel">
-
-          <div class="music-info">
-
-            <div class="music-disc">
-              ♫
-            </div>
-
-            <div>
-
-              <span>
-                NUESTRA CANCIÓN
-              </span>
-
-              <h3>
-              Amor
-              </h3>
-
-              <p>
-                Emmanuel Cortes
-              </p>
-
-            </div>
-
-          </div>
-
-
-          <div class="audio-area">
-
-            <audio controls preload="metadata">
-    <source src="Emmanuel Cortes - Amor.mp3" type="audio/mpeg">
-    Tu navegador no puede reproducir este audio.
-</audio>
-
-            <label class="song-upload">
-
-              🎵 Seleccionar canción
-
-              <input
-                type="file"
-                id="songInput"
-                accept="audio/*"
-                hidden
+              <img
+                id="memoryImage"
+                src="foto.jpg"
+                alt="Nuestro momento"
               >
 
-            </label>
+              <div
+                id="photoPlaceholder"
+                class="photo-placeholder"
+              >
+
+                <span>
+                  Nuestro momento
+                </span>
+
+                <small>
+                  ❤️
+                </small>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <!-- MÚSICA -->
+          <div class="music-player glass-panel">
+
+            <div class="music-info">
+
+              <div class="music-disc">
+                ♫
+              </div>
+
+              <div>
+
+                <span>
+                  NUESTRA CANCIÓN
+                </span>
+
+                <h3>
+                  Amor
+                </h3>
+
+                <p>
+                  Emmanuel Cortes
+                </p>
+
+              </div>
+
+            </div>
+
+
+            <div class="audio-area">
+
+              <audio
+                id="mainAudio"
+                controls
+                preload="metadata"
+              >
+
+                <source
+                  src="Emmanuel Cortes - Amor.mp3"
+                  type="audio/mpeg"
+                >
+
+                Tu navegador no puede reproducir este audio.
+
+              </audio>
+
+            </div>
 
           </div>
 
         </div>
 
+
         <p class="music-note">
-          Selecciona tu archivo MP3 de
-          <strong>“Amor - Emmanuel Cortes”</strong>
-          para reproducirlo aquí.
+          Una canción para acompañar
+          nuestro pequeño universo. ❤️
         </p>
 
       </section>
 
 
-
-      <!-- HISTORIA -->
-      <section id="historia" class="section history-section">
+      <!-- =========================
+           HISTORIA
+      ========================== -->
+      <section
+        id="historia"
+        class="section history-section"
+      >
 
         <div class="section-title">
 
@@ -543,7 +532,7 @@
               </span>
 
               <h3>
-                Todo comenzó con una pequña conversacion
+                Todo comenzó con una pequeña conversación.
               </h3>
 
               <p>
@@ -612,9 +601,13 @@
       </section>
 
 
-
-      <!-- PARA SIEMPRE -->
-      <section id="siempre" class="section forever-section">
+      <!-- =========================
+           PARA SIEMPRE
+      ========================== -->
+      <section
+        id="siempre"
+        class="section forever-section"
+      >
 
         <div class="forever-content">
 
@@ -632,7 +625,6 @@
             en mi universo.
           </h2>
 
-          <!-- EDITA -->
           <p class="final-message">
             Gracias por ser parte de mi historia.
             Espero que este pequeño universo
@@ -648,29 +640,29 @@
       </section>
 
 
-      <!-- FOOTER -->
+      <!-- =========================
+           FOOTER
+      ========================== -->
       <footer>
 
-        <div>
-          ♡
-        </div>
+        <div>♡</div>
 
         <p>
           Hecho con cariño para alguien muy especial.
-          
-          Que te ama con toda su ALMA
+          <br>
+          Que te ama con toda su ALMA.
         </p>
 
-        <span>
-          ✦
-        </span>
+        <span>✦</span>
 
       </footer>
 
     </main>
 
 
-    <!-- MODAL DE MENSAJE -->
+    <!-- =========================
+         MODAL
+    ========================== -->
     <div
       id="messageModal"
       class="modal"
@@ -680,7 +672,9 @@
 
         <button
           class="modal-close"
+          type="button"
           onclick="closeMessage()"
+          aria-label="Cerrar"
         >
           ×
         </button>
@@ -693,15 +687,16 @@
           Para ti
         </h2>
 
-        <p id="modalText">
-        </p>
+        <p id="modalText"></p>
 
       </div>
 
     </div>
 
 
-    <!-- HORA -->
+    <!-- =========================
+         CONTADOR
+    ========================== -->
     <div class="clock">
 
       <div class="clock-icon">
@@ -711,7 +706,7 @@
       <div>
 
         <strong id="currentTime">
-          00:00
+          00:00:00
         </strong>
 
         <span>
@@ -723,6 +718,9 @@
     </div>
 
   </div>
+
+
   <script src="script.js"></script>
+
 </body>
 </html>
